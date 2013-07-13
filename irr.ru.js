@@ -61,8 +61,8 @@ var emailWrapper = function(options){
     if(!options){
         options = {};
         options.server = {
-            user:    "imschved",
-            password:"nogood364",
+            user:    "user",
+            password:"pass",
             host:    "smtp.gmail.com",
             ssl:     true
         };
