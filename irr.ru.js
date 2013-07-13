@@ -56,38 +56,7 @@ var URL = 'http://www.irr.ru',
 
 //соединяемся с базой
 mongoose.connect(PARSER.MONGODB);
-//класс отправки сообщений
-var emailWrapper = function(options){
-    if(!options){
-        options = {};
-        options.server = {
-            user:    "user",
-            password:"pass",
-            host:    "smtp.gmail.com",
-            ssl:     true
-        };
-    }
-    //коннектимся к серверу
-    this.connect = emailjs.server.connect(options.server);
-    //отправка сообщения
-    this.send = function ( message, cb){
 
-        if(!cb){
-            cb = function(err, results){
-                //console.log('send...');
-                if(err){
-                    //console.log('send[Errors]...');
-                    console.log(err);
-                }
-                if(results){
-                    //console.log('send[Results]...');
-                    //console.log(results);
-                }
-            };
-        }
-        this.connect.send(message, cb);
-    }
-};
 //класс для действий с базой
 var dbWrapper = function (mongoose, schema, modelName){
     //console.log('dbWrapper');
